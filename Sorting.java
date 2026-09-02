@@ -9,8 +9,6 @@ class sortValue<T>{
     public T getValue(){return this.val;}
 }
 
-
-
 public class Sorting{
     public static void main(String[] args){
         //Instance
