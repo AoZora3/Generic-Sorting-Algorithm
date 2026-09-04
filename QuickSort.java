@@ -5,10 +5,11 @@ public class QuickSort<T extends Comparable<T>> {
 
     private void quickSort(SortValue<T>[] arr, int low, int high, boolean ascending, boolean visualize) {
         if (low < high) {
+            // Partitioning places the pivot at its final index and divides the remaining range.
             int pi = partition(arr, low, high, ascending);
 
             if (visualize) {
-                Visualizer.visualizeSort(arr, "Quick Sort - Partitioning [" + low + ", " + high + "]");
+                Visualizer.visualizeSort(arr, "Quick Sort - Partitioning [" + low + ", " + high + "]", pi);
             }
 
             quickSort(arr, low, pi - 1, ascending, visualize);
