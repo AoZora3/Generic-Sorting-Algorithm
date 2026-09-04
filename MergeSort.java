@@ -12,13 +12,14 @@ public class MergeSort<T extends Comparable<T>> {
         if (left < right) {
             int mid = left + (right - left) / 2;
 
+            // Recursively sort each half, then merge the two sorted ranges into one range.
             mergeSort(arr, left, mid, ascending, visualize);
             mergeSort(arr, mid + 1, right, ascending, visualize);
 
             merge(arr, left, mid, right, ascending);
 
             if (visualize) {
-                Visualizer.visualizeSort(arr, "Merge Sort - Merging [" + left + ", " + right + "]");
+                Visualizer.visualizeSort(arr, "Merge Sort - Merging [" + left + ", " + right + "]", right);
             }
         }
     }
