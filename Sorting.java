@@ -3,6 +3,7 @@ import java.util.function.Function;
 
 public class Sorting {
     private static <T extends Comparable<T>> SortValue<T>[] readUserArray(Scanner scan, int length, Function<String, T> parser) {
+        // Java cannot create a generic array directly, so create the raw array and cast it once.
         @SuppressWarnings("unchecked")
         SortValue<T>[] values = (SortValue<T>[]) new SortValue[length];
 
@@ -17,11 +18,21 @@ public class Sorting {
 
     private static <T extends Comparable<T>> void executeSort(SortValue<T>[] values, int algoChoice, boolean ascending) {
         switch (algoChoice) {
-            case 1 -> new InsertionSort<T>().sort(values, ascending, true);
-            case 2 -> new SelectionSort<T>().sort(values, ascending, true);
-            case 3 -> new MergeSort<T>().sort(values, ascending, true);
-            case 4 -> new QuickSort<T>().sort(values, ascending, true);
-            default -> System.out.println("Invalid algorithm choice.");
+            case 1:
+                new InsertionSort<T>().sort(values, ascending, true);
+                break;
+            case 2:
+                new SelectionSort<T>().sort(values, ascending, true);
+                break;
+            case 3:
+                new MergeSort<T>().sort(values, ascending, true);
+                break;
+            case 4:
+                new QuickSort<T>().sort(values, ascending, true);
+                break;
+            default:
+                System.out.println("Invalid algorithm choice.");
+                break;
         }
     }
 
